@@ -49,5 +49,5 @@ class Cart extends Model
         $this->totalQuanty += $this->products[$id]['quanty'];
         $this->totalPrice += $this->products[$id]['price'];
     }
-
+    // sửa chỗ này nhá.
 }
