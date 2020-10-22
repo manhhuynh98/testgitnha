@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +22,9 @@ Route::get('home', 'HomeController@index');
 
 view()->composer('*', function ($view) {
     if (Auth::check()) {
-        return view()->share('infoUser', Auth::user());
+        $infoUser = Auth::user();
+        $infoUser['status'] = DB::table('role_user')->where('user_id', Auth::user()->id)->first();
+        return view()->share('infoUser', $infoUser);
     }
 });
 
@@ -47,11 +50,18 @@ Route::get('get-cart', 'CartController@getCart');
 
 Route::get('profile', [HomeController::class, 'getProfile']);
 
+//Route::prefix('/admin')->group(function () {
+//    Route::get('home', function () {
+//        return view('admin.home');
+//    });
+//});
+
 Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
     Route::get('home', function () {
         return view('admin.home');
     });
+
 
     Route::group(['prefix' => 'category'], function () {
         Route::get('list', 'CategoryController@list');

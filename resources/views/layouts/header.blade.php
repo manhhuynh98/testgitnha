@@ -69,7 +69,7 @@
                                             <ul class="dropdown-menu">
                                                 <li><i class="fa fa-user"><a href="profile"
                                                             style="color: #4e4e4e">{{ $infoUser->name }}</a></i></li>
-                                                @if ($infoUser->status != 0)
+                                                @if ($infoUser->status != null)
                                                 <li><i class="fa ti-settings"><a href="admin/home"
                                                             style="color: #4e4e4e">Admin manager</a></i></li>
                                                 @endif
