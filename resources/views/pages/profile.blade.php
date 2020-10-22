@@ -1,4 +1,4 @@
-@extends('default.index')
+@extends('layouts.app')
 @section('css')
     .emp-profile{
     padding: 3%;

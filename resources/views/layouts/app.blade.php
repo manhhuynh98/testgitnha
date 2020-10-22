@@ -32,7 +32,9 @@
                     color: blueviolet;
                 }
             </style>
+        <style>
             @yield('css')
+        </style>
    </head>
 
    <body>

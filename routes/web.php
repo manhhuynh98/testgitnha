@@ -15,13 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/','HomeController@index' );
+Route::get('/', 'HomeController@index');
 
-Route::get('home','HomeController@index' );
+Route::get('home', 'HomeController@index');
 
 view()->composer('*', function ($view) {
     if (Auth::check()) {
-        return view()->share('infoUser',Auth::user());
+        return view()->share('infoUser', Auth::user());
     }
 });
 
@@ -45,9 +45,9 @@ Route::get('edit-cart-quanty/{id}/{sl}', 'CartController@editCartInput');
 Route::get('delete-item-cart/{id}', 'CartController@removeItemCart');
 Route::get('get-cart', 'CartController@getCart');
 
-Route::get('profile', 'HomeController@getProfile');
+Route::get('profile', [HomeController::class, 'getProfile']);
 
-Route::group(['prefix' => 'admin','middleware' => 'adminlogin'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
     Route::get('home', function () {
         return view('admin.home');
@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin','middleware' => 'adminlogin'], function () {
         Route::get('delete/{id}', 'UserController@getDelete');
     });
 
-    Route::group(['prefix' => 'role', 'middleware'=>'permission'], function () {
+    Route::group(['prefix' => 'role', 'middleware' => 'permission'], function () {
         Route::get('list', 'UserController@listRole');
         Route::get('add/{id}', 'UserController@addRole');
         Route::post('add/{id}', 'UserController@postAddRole');
