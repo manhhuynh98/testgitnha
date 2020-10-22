@@ -46,8 +46,6 @@
         </div>
         <!-- END wrapper -->
 
-            @include('admin.layouts.rightbar')
-
         <!-- Vendor js -->
         <script src="assets\js\vendor.min.js"></script>
 

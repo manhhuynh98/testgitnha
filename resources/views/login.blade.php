@@ -71,14 +71,15 @@
 
                                     <div class="form-group row text-center mt-4 mb-4">
                                         <div class="col-12">
-                                            <button class="btn btn-md btn-block waves-effect waves-light" style="background-color: #d44837" type="button"><a href="loginwithgoogle">Sign In With Google+</a></button>
+                                            <button class="btn btn-md btn-danger text-white btn-block waves-effect waves-light" type="button"><a href="loginwithgoogle" class="text-white">Sign in with Google+</a></button>
                                         </div>
                                     </div>
-                                    <div class="form-group row text-center mt-4 mb-4">
-                                        <div class="col-12">
-                                            <button class="btn btn-md btn-block waves-effect waves-light" style="background-color: #d44837" type="submit">Sign In With Google+</button>
-                                        </div>
-                                    </div>
+
+{{--                                    <div class="form-group row text-center mt-4 mb-4">--}}
+{{--                                        <div class="col-12">--}}
+{{--                                            <button class="btn btn-md btn-block waves-effect waves-light" style="background-color: #d44837" type="submit">Sign In With Google+</button>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
 
                                     <div class="form-group row mb-0">
                                         <div class="col-sm-12 text-center">
