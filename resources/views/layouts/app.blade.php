@@ -97,8 +97,8 @@
         <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
         <!-- Default theme -->
 
+        @yield('script')
     </body>
 
-    @yield('script')
 
 </html>

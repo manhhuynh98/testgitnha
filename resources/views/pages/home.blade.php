@@ -67,7 +67,7 @@ Home
                             <div class="price">
                                 <ul>
                                     <li style="color: #ee4d2d"><span>₫ </span>{{ number_format($item->price) }}</li>
-                                    <li><button><span class="fa fa-cart-plus black-color"></span></button></li>
+                                <li><button onclick="addCart({{$item->id}})"><span class="fa fa-cart-plus black-color"></span></button></li>
                                 </ul>
                             </div>
                         </div>
@@ -85,6 +85,15 @@ Home
 
 @section('script')
 <script>
-    
+    function addCart(id){
+        $.ajax({
+            type: "get",
+            url: "add-cart/"+id,
+            success: function (response) {
+                $('#quanty').empty;
+                $('#quanty').html(response);
+            }
+        });
+    }
 </script>
 @endsection

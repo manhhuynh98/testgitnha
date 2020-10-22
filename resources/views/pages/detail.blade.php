@@ -14,6 +14,14 @@ Chi tiết sản phẩm
         <div class="row">
             <div class="col-lg-6">
                 <img class="img-fluid" src="{{ $product->image }}">
+                <div class="section-tittle mb-30">
+                    <h3>Giá bán: {{ number_format($product->price) }}</h3>
+                    <div class="d-flex justify-content-end">
+                        <button onclick="addCart({{$product->id}})" class=" btn btn-lg">Mua ngay</button>
+                    </div>
+                </div>
+
+
             </div>
             <div class="col-lg-6 pb-5">
                 <h3 class="mb-lg-4">Cấu hình | Thông số</h3>
@@ -31,4 +39,19 @@ Chi tiết sản phẩm
         </div>
     </div>
 </section>
+@endsection
+
+@section('script')
+    <script>
+        function addCart(id){
+            $.ajax({
+                type: "get",
+                url: "add-cart/"+id,
+                success: function (response) {
+                    $('#quanty').empty;
+                    $('#quanty').html(response);
+                }
+            });
+        }
+    </script>
 @endsection

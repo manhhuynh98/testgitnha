@@ -116,5 +116,10 @@ class HomeController extends Controller
         return view('pages.detail',compact('product'));
     }
 
+    public function getProfile(){
+        $user = Auth::user();
+        return view('pages.profile',compact('user'));
+    }
+
 
 }

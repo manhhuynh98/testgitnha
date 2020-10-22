@@ -11,15 +11,6 @@
                                     <li>+84-334-814-333</li>
                                 </ul>
                             </div>
-                            <div class="header-info-right">
-                                <ul>
-                                    <li><a href="register">Đăng ký </a></li>
-                                    <li><a href="product-list">Wish List </a></li>
-                                    <li><a href="cart">Shopping</a></li>
-                                    <li><a href="cart">Cart</a></li>
-                                    <li><a href="checkout">Checkout</a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -55,8 +46,17 @@
                         </div>
                         <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                             <ul class="header-right f-right d-flex justify-content-between">
-                                <li><a href="" style="padding: 0px; line-height: 50px">
-                                        <i class="fa fa-shopping-cart"><span id="cartQuanty" class="badge badge-success" style="border-radius: 50%">0</span></i>
+                                <li>
+                                    <a href="get-cart" style="padding: 0px; line-height: 50px">
+                                        <div id="quanty">
+                                            <i class="fa fa-shopping-cart"><span id="cartQuanty" class="badge badge-success" style="border-radius: 50%">
+                                                @if (Auth::check())
+                                                    {{ Cart::session(Auth::user()->id)->getTotalQuantity() }}
+                                                @else
+                                                    0
+                                                @endif
+                                            </span></i>
+                                        </div>
                                     </a>
                                 </li>
                                 @if (isset($infoUser))
