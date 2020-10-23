@@ -40,8 +40,10 @@
                         <div class="card-body widget-style-2">
                             <div class="text-white media">
                                 <div class="media-body align-self-center">
-                                    <h2 class="my-0 text-white"><span data-plugin="counterup">50</span></h2>
-                                    <p class="mb-0">Daily Visits</p>
+                                    <h2 class="my-0 text-white"><span data-plugin="counterup">
+                                            {{$quanty}}
+                                        </span></h2>
+                                    <p class="mb-0">Quanty Total</p>
                                 </div>
                                 <i class="ion-md-eye"></i>
                             </div>

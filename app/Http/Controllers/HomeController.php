@@ -18,10 +18,9 @@ class HomeController extends Controller
 
     public function index()
     {
-
-        // $product = Product::all();
-        $product = DB::table('products')->paginate(8);
-        return view('pages.home',compact('product'));
+        $hot = Product::where('status',1)->paginate(8);
+        $new = Product::where('status',2)->paginate(8);
+        return view('pages.home',compact('hot','new'));
     }
 
     public function getLogin()
@@ -121,5 +120,15 @@ class HomeController extends Controller
         return view('pages.profile',compact('user'));
     }
 
+    public function getProduct()
+    {
+        $product = Product::latest('updated_at')->paginate(8);
+        return view('pages.product_list',compact('product'));
+    }
+
+    public function adminHome(){
+        $quanty = DB::table('products')->sum('quanty');
+        return view('admin.home',compact('quanty'));
+    }
 
 }

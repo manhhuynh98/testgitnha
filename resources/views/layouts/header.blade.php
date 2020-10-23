@@ -33,7 +33,7 @@
                                         <li><a href="javascript:void(0)">Thể loại</a>
                                             <ul class="submenu">
                                                 @foreach ($category as $item)
-                                                <li><a href="product-list">{{ $item->name }}</a></li>
+                                                <li><a href="product-for-category/{{$item->id}}">{{ $item->name }}</a></li>
                                                 @endforeach
                                             </ul>
                                         </li>

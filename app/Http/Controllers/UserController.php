@@ -55,6 +55,7 @@ class UserController extends Controller
     public function addRole($id){
         // $this->authorize('App\Role');
         $user = User::find($id);
+        if (!$user) abort(404);
         $role = Role::all();
         $roleOfUser = DB::table('role_user')->where('user_id',$id)->pluck('role_id');
         return view('admin.user.addrole',compact('user', 'role', 'roleOfUser'));

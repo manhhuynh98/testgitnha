@@ -1,10 +1,10 @@
 <td><input disabled class="form-control form-control-plaintext"  name="name" id="name-{{ $product->id }}" type="text" value="{{ $product->name }}"></td>
 <td><input disabled class="form-control form-control-plaintext" name="image" id="image-{{ $product->id }}" type="text" value="{{ $product->image }}"></td>
-<td><input disabled class="form-control form-control-plaintext" name="content" id="content-{{ $product->id }}" type="text" value="{{ $product->content }}"></td>
+<td><input disabled class="form-control form-control-plaintext" name="quanty" id="quanty-{{ $product->id }}" type="text" value="{{ $product->quanty }}"></td>
 <td><input disabled class="form-control form-control-plaintext" name="p-price" id="p-price-{{ $product->id }}"
-    type="text" value="{{ number_format($product->purchase_price) }}"></td>
+    type="text" value="{{ $product->purchase_price }}"></td>
 <td><input disabled class="form-control form-control-plaintext" name="s-price" id="s-price-{{ $product->id }}"
-    type="text" value="{{ number_format($product->sale_price) }}"></td>
+    type="text" value="{{ $product->price }}"></td>
 <td><select name="idCategory" id="idCategory-{{ $product->id }}" class="form-control form-control-plaintext">
     @foreach ($category as $cat)
         @if ($cat->id == $product->idCategory)

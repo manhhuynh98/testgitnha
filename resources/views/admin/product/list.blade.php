@@ -28,9 +28,9 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>Image</th>
-                                            <th>Content</th>
+                                            <th>Quanty</th>
                                             <th>Purchase price </th>
-                                            <th>Sale price </th>
+                                            <th>Price </th>
                                             <th>Category</th>
                                             <th></th>
                                         </tr>
@@ -40,9 +40,9 @@
                                             <tr id="edit-{{ $item->id }}">
                                                 <td><input disabled class="form-control form-control-plaintext"  name="name" id="name-{{ $item->id }}" type="text" value="{{ $item->name }}"></td>
                                                 <td><input disabled class="form-control form-control-plaintext" name="image" id="image-{{ $item->id }}" type="text" value="{{ $item->image }}"></td>
-                                                <td><input disabled class="form-control form-control-plaintext" name="content" id="content-{{ $item->id }}" type="text" value="{{ $item->content }}"></td>
-                                                <td><input disabled class="form-control form-control-plaintext" name="p-price" id="p-price-{{ $item->id }}" type="text" value="{{ number_format($item->purchase_price) }}"></td>
-                                                <td><input disabled class="form-control form-control-plaintext" name="s-price" id="s-price-{{ $item->id }}" type="text" value="{{ number_format($item->sale_price) }}"></td>
+                                                <td><input disabled class="form-control form-control-plaintext" name="quanty" id="quanty-{{ $item->id }}" type="text" value="{{ $item->quanty}}"></td>
+                                                <td><input disabled class="form-control form-control-plaintext" name="p-price" id="p-price-{{ $item->id }}" type="text" value="{{ $item->purchase_price}}"></td>
+                                                <td><input disabled class="form-control form-control-plaintext" name="s-price" id="s-price-{{ $item->id }}" type="text" value="{{ $item->price }}"></td>
                                                 <td><select name="idCategory" id="idCategory-{{ $item->id }}" class="form-control form-control-plaintext">
                                                     @foreach ($category as $cat)
                                                         @if ($cat->id == $item->idCategory)
@@ -90,7 +90,7 @@
         $('#btnCancel-'+id).removeAttr('hidden');
         $('#name-'+id).removeAttr('disabled');
         $('#image-'+id).removeAttr('disabled');
-        $('#content-'+id).removeAttr('disabled');
+        $('#quanty-'+id).removeAttr('disabled');
         $('#p-price-'+id).removeAttr('disabled');
         $('#s-price-'+id).removeAttr('disabled');
         $('#idCategory-'+id).removeAttr('disabled');
@@ -103,14 +103,14 @@
         $('#btnCancel-'+id).attr('hidden','');
         $('#name-'+id).attr('disabled','');
         $('#image-'+id).attr('disabled','');
-        $('#content-'+id).attr('disabled','');
+        $('#quanty-'+id).attr('disabled','');
         $('#p-price-'+id).attr('disabled','');
         $('#s-price-'+id).attr('disabled','');
         $('#idCategory-'+id).attr('disabled','');
 
         $.ajax({
             type: "GET",
-            url: "admin/product/edit/"+id,
+            url: '/admin/product/edit/'+id,
             success: function (response) {
                 $('#edit-'+id).empty;
                 $('#edit-'+id).html(response);
@@ -121,18 +121,19 @@
     function SaveEditItem(id) {
         name = $('#name-'+id).val();
         image = $('#image-'+id).val();
-        content = $('#content-'+id).val();
+        quanty = $('#quanty-'+id).val();
         pprice = $('#p-price-'+id).val();
         sprice = $('#s-price-'+id).val();
         idCategory = $("#idCategory-"+id).val();
+        console.log(idCategory);
 
         $.ajax({
             type: "POST",
-            url: 'admin/product/edit/'+id,
+            url: '/admin/product/edit/'+id,
             data: {
                 name: name,
                 image: image,
-                content: content,
+                quanty: quanty,
                 pprice: pprice,
                 sprice: sprice,
                 idCategory: idCategory,
@@ -141,7 +142,7 @@
             success: function (response) {
                 $('#edit-'+id).empty;
                 $('#edit-'+id).html(response);
-                alert('ok');
+                // alert('ok');
             },
             error: function (){
                 alert('fail');
@@ -150,7 +151,7 @@
     }
 
     $('#addItem').click(function () {
-        $('table tbody').append('<tr id="add"> <td><input class="form-control form-control-plaintext" name="name" id="name" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="image" id="image" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="content" id="content" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="p-price" id="p-price" type="text" placeholder="Hãy nhập thông tin"></td><td><input class="form-control form-control-plaintext" name="s-price" id="s-price" type="text" placeholder="Hãy nhập thông tin"></td> <td><select name="idCategory" id="idCategory" class="form-control form-control-plaintext"> @foreach ($category as $cat) <option value="{{ $cat->id }}">{{ $cat->name }}</option> @endforeach </select></td> <td><a href="javacript:" onclick="btnSave()" ><span class="ion ion-md-save mr-4"></span></a><a href="javacript:" onclick="btnCancel()"><span class="ion ion-md-close"></span></a></td> </tr>');
+        $('table tbody').append('<tr id="add"> <td><input class="form-control form-control-plaintext" name="name" id="name" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="image" id="image" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="quanty" id="quanty" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="p-price" id="p-price" type="text" placeholder="Hãy nhập thông tin"></td><td><input class="form-control form-control-plaintext" name="s-price" id="s-price" type="text" placeholder="Hãy nhập thông tin"></td> <td><select name="idCategory" id="idCategory" class="form-control form-control-plaintext"> @foreach ($category as $cat) <option value="{{ $cat->id }}">{{ $cat->name }}</option> @endforeach </select></td> <td><a href="javacript:" onclick="btnSave()" ><span class="ion ion-md-save mr-4"></span></a><a href="javacript:" onclick="btnCancel()"><span class="ion ion-md-close"></span></a></td> </tr>');
         $('#addItem').attr('hidden',"");
     })
 
@@ -158,7 +159,7 @@
       // Content Code
         name = $('#name').val();
         image= $('#image').val();
-        content= $('#content').val();
+        quanty= $('#quanty').val();
         pprice = $('#p-price').val();
         sprice = $('#s-price').val();
         idCategory= $('#idCategory').val();
@@ -169,7 +170,7 @@
             data: {
                 name: name,
                 image: image,
-                content: content,
+                quanty: quanty,
                 pprice: pprice,
                 sprice: sprice,
                 idCategory: idCategory,

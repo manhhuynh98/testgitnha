@@ -10,6 +10,13 @@
                 <li class="menu-title">Navigation</li>
 
                 <li>
+                    <a href="home" class="waves-effect">
+                        <i class="ion-ios-list"></i>
+                        <span>  Home  </span>
+                    </a>
+                </li>
+
+                <li>
                     <a href="admin/home" class="waves-effect">
                         <i class="ion-ios-list"></i>
                         <span>  Dashboard  </span>

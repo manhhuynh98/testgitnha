@@ -41,6 +41,11 @@ Route::post('register', 'HomeController@postRegister');
 
 Route::get('product-detail/{id}', 'HomeController@getProductDetail');
 
+Route::get('product-list', 'HomeController@getProduct');
+
+Route::get('product-for-category/{id}', 'CategoryController@getProduct');
+
+
 Route::get('add-cart/{id}', 'CartController@addCart')->name('cart.add');
 Route::get('edit-cart-minus/{id}', 'CartController@editCartMinus');
 Route::get('edit-cart-plus/{id}', 'CartController@editCartPlus');
@@ -58,9 +63,7 @@ Route::get('profile', [HomeController::class, 'getProfile']);
 
 Route::group(['prefix' => 'admin', 'middleware' => 'adminLogin'], function () {
 
-    Route::get('home', function () {
-        return view('admin.home');
-    });
+    Route::get('home', 'HomeController@adminHome');
 
 
     Route::group(['prefix' => 'category'], function () {

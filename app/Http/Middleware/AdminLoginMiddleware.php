@@ -16,7 +16,7 @@ class AdminLoginMiddleware
             if ($listRoleOfUser != null) {
                 return $next($request);
             } else {
-                return redirect('home')->with('warning', 'bạn không phải là admin');
+                return redirect()->route('home')->with('warning', 'bạn không phải là admin');
             }
         } else {
             return redirect('login')->with('warning', 'bạn chưa đăng nhập');

@@ -15,7 +15,7 @@ Home
             </div>
         </div>
         <div class="row">
-            @foreach ($product as $item)
+            @foreach ($new as $item)
                 <div class="col-xl-3 col-lg-3 col-md-4">
                     <div class="single-product mb-60">
                         <div class="product-img">
@@ -38,10 +38,9 @@ Home
                     </div>
                 </div>
             @endforeach
-
         </div>
         <div class="pagination justify-content-end">
-            {{ $product->links() }}
+            {{ $new->links() }}
         </div>
 
         <div class="row product-btn d-flex align-items-end">
@@ -53,7 +52,7 @@ Home
             </div>
         </div>
         <div class="row">
-            @foreach ($product as $item)
+            @foreach ($hot as $item)
                 <div class="col-xl-3 col-lg-3 col-md-4">
                     <div class="single-product mb-60">
                         <div class="product-img">
@@ -76,7 +75,7 @@ Home
             @endforeach
         </div>
         <div class="pagination justify-content-end">
-            {{ $product->links() }}
+            {{ $hot->links() }}
         </div>
     </div>
 </section>

@@ -26,14 +26,10 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $_POST['name'];
         $product->image = $_POST['image'];
-        $product->content = $_POST['content'];
-        $product->sale_price = $_POST['sprice'];
+        $product->quanty = $_POST['quanty'];
+        $product->price = $_POST['sprice'];
         $product->purchase_price = $_POST['pprice'];
         $product->idCategory = $_POST['idCategory'];
-
-        // $idCategory = $_POST['idCategory'];
-        // $temp = Category::find($idCategory);
-        // dd($temp);
         $product->save();
         return view('admin.product.edit',compact('product','category'));
     }
@@ -43,8 +39,8 @@ class ProductController extends Controller
         $product = new Product;
         $product->name = $_POST['name'];
         $product->image = $_POST['image'];
-        $product->content = $_POST['content'];
-        $product->sale_price = $_POST['sprice'];
+        $product->quanty = $_POST['quanty'];
+        $product->price = $_POST['sprice'];
         $product->purchase_price = $_POST['pprice'];
         $product->idCategory = $_POST['idCategory'];
         $product->save();

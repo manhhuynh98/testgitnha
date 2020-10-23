@@ -74,7 +74,7 @@
         $('#btnDelete-'+id).attr('hidden','');
         $('#btnSave-'+id).removeAttr('hidden');
         $('#btnCancel-'+id).removeAttr('hidden');
-        $('#name-'+id).removeAttr('disabled');
+        // $('#name-'+id).removeAttr('disabled');
         $('#image-'+id).removeAttr('disabled');
         $('#created_at-'+id).removeAttr('disabled');
         $('#updated_at-'+id).removeAttr('disabled');
@@ -85,7 +85,7 @@
         $('#btnDelete-'+id).removeAttr('hidden');
         $('#btnSave-'+id).attr('hidden','');
         $('#btnCancel-'+id).attr('hidden','');
-        $('#name-'+id).attr('disabled','');
+        // $('#name-'+id).attr('disabled','');
         $('#image-'+id).attr('disabled','');
         $('#created_at-'+id).attr('disabled','');
         $('#updated_at-'+id).attr('disabled','');
@@ -120,6 +120,9 @@
                 $('#edit-'+id).empty;
                 $('#edit-'+id).html(response);
                 alert('ok');
+            },
+            error: function (){
+                alert("fail");
             }
         });
     }

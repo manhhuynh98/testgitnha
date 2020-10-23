@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('title')
-Chi tiết sản phẩm
+    Giỏ hàng
 @endsection
 @section('content')
 <section class="latest-product-area padding-bottom">
@@ -36,6 +36,9 @@ Chi tiết sản phẩm
                 </tr>
             @endforeach
         </table>
+        <div class="d-flex justify-content-end mr-4">
+            <button class="btn-success ">Mua ngay</button>
+        </div>
     </div>
 </section>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -20,8 +21,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = $_POST['name'];
         $category->image = $_POST['image'];
-        $category->created_at = $_POST['created_at'];
-        $category->updated_at = $_POST['updated_at'];
         $category->save();
         return view('admin.category.edit',compact('category'));
     }
@@ -35,8 +34,6 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $_POST['name'];
         $category->image = $_POST['image'];
-        $category->created_at = $_POST['created_at'];
-        $category->updated_at = $_POST['updated_at'];
         $category->save();
         return view('admin.category.add',compact('category'));
     }
@@ -46,5 +43,10 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return redirect('admin/category/list');
+    }
+
+    public function getProduct($id){
+        $product = Product::where('idCategory',$id)->paginate(10);
+        return view('pages.product_for_category',compact('product'));
     }
 }
