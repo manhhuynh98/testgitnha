@@ -31,7 +31,9 @@ Home
                             <div class="price">
                                 <ul>
                                     <li style="color: #ee4d2d"><span>₫ </span>{{ number_format($item->price) }}</li>
-                                    <li><button onclick="addCart({{ $item->id }})"><span class="fa fa-cart-plus black-color"></span></button></li>
+                                    @if(Auth::check())
+                                        <li><button onclick="addCart({{ $item->id }})"><span class="fa fa-cart-plus black-color"></span></button></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>
@@ -66,7 +68,9 @@ Home
                             <div class="price">
                                 <ul>
                                     <li style="color: #ee4d2d"><span>₫ </span>{{ number_format($item->price) }}</li>
-                                <li><button onclick="addCart({{$item->id}})"><span class="fa fa-cart-plus black-color"></span></button></li>
+                                    @if(Auth::check())
+                                        <li><button onclick="addCart({{ $item->id }})"><span class="fa fa-cart-plus black-color"></span></button></li>
+                                    @endif
                                 </ul>
                             </div>
                         </div>

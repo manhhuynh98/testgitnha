@@ -5,7 +5,23 @@
            type="text" value="{{ $product->purchase_price }}"></td>
 <td><input disabled class="form-control form-control-plaintext" name="s-price" id="s-price-{{ $product->id }}"
            type="text" value="{{ $product->price }}"></td>
-<td><select name="idCategory" id="idCategory-{{ $product->id }}" class="form-control form-control-plaintext">
+<td><select disabled name="status" id="status-{{ $product->id }}" class="form-control form-control-plaintext">
+
+        @if ($product->status == 1)
+            <option value="1" selected >Hot</option>
+            <option value="2">New</option>
+            <option value="0">Normal</option>
+        @elseif($product->status == 2)
+            <option value="1">Hot</option>
+            <option value="2" selected >New</option>
+            <option value="0">Normal</option>
+        @else
+            <option value="1">Hot</option>
+            <option value="2">New</option>
+            <option value="0" selected >Normal</option>
+        @endif
+    </select></td>
+<td><select disabled name="idCategory" id="idCategory-{{ $product->id }}" class="form-control form-control-plaintext">
         @foreach ($category as $cat)
             @if ($cat->id == $product->idCategory)
                 <option value="{{ $cat->id }}" selected >{{ $cat->name }}</option>

@@ -24,6 +24,7 @@ class CartController extends Controller
 
         $cartTotalQuantity = Cart::session($userId)->getTotalQuantity();
         return view('pages.quanty_cart', compact('cartTotalQuantity'));
+
         // dd($a);
     }
 

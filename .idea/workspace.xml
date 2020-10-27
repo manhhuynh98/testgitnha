@@ -21,22 +21,16 @@
   <component name="ChangeListManager">
     <list default="true" id="a64b816a-3c40-4299-9403-039fdd724466" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CategoryController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/AdminLoginMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/AdminLoginMiddleware.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/add.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/category/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/layouts/leftmenu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/layouts/leftmenu.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/add.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/add.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/edit.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/product/list.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/header.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/cart.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/detail.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/detail.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/pages/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/product_for_category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product_for_category.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/product_list.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/product_list.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/pages/profile.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/pages/profile.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,6 +192,7 @@
       <workItem from="1603247019330" duration="8809000" />
       <workItem from="1603330711240" duration="333000" />
       <workItem from="1603341230507" duration="16866000" />
+      <workItem from="1603508192937" duration="4815000" />
     </task>
     <servers />
   </component>
@@ -214,6 +209,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="411" y="166" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1603361101709">

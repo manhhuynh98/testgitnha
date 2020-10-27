@@ -31,6 +31,7 @@
                                             <th>Quanty</th>
                                             <th>Purchase price </th>
                                             <th>Price </th>
+                                            <th>Status </th>
                                             <th>Category</th>
                                             <th></th>
                                         </tr>
@@ -43,7 +44,23 @@
                                                 <td><input disabled class="form-control form-control-plaintext" name="quanty" id="quanty-{{ $item->id }}" type="text" value="{{ $item->quanty}}"></td>
                                                 <td><input disabled class="form-control form-control-plaintext" name="p-price" id="p-price-{{ $item->id }}" type="text" value="{{ $item->purchase_price}}"></td>
                                                 <td><input disabled class="form-control form-control-plaintext" name="s-price" id="s-price-{{ $item->id }}" type="text" value="{{ $item->price }}"></td>
-                                                <td><select name="idCategory" id="idCategory-{{ $item->id }}" class="form-control form-control-plaintext">
+                                                <td><select disabled name="status" id="status-{{ $item->id }}" class="form-control form-control-plaintext">
+
+                                                        @if ($item->status == 1)
+                                                            <option value="1" selected >Hot</option>
+                                                            <option value="2">New</option>
+                                                            <option value="0">Normal</option>
+                                                        @elseif($item->status == 2)
+                                                            <option value="1">Hot</option>
+                                                            <option value="2" selected >New</option>
+                                                            <option value="0">Normal</option>
+                                                        @else
+                                                            <option value="1">Hot</option>
+                                                            <option value="2">New</option>
+                                                            <option value="0" selected >Normal</option>
+                                                        @endif
+                                                    </select></td>
+                                                <td><select disabled name="idCategory" id="idCategory-{{ $item->id }}" class="form-control form-control-plaintext">
                                                     @foreach ($category as $cat)
                                                         @if ($cat->id == $item->idCategory)
                                                             <option value="{{ $cat->id }}" selected >{{ $cat->name }}</option>
@@ -64,6 +81,9 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="d-flex justify-content-end">
+                                    {{$product->links()}}
+                                </div>
                             </div>
                             <!-- end .table-responsive-->
                         </div>
@@ -93,6 +113,7 @@
         $('#quanty-'+id).removeAttr('disabled');
         $('#p-price-'+id).removeAttr('disabled');
         $('#s-price-'+id).removeAttr('disabled');
+        $('#status-'+id).removeAttr('disabled');
         $('#idCategory-'+id).removeAttr('disabled');
     }
 
@@ -106,11 +127,12 @@
         $('#quanty-'+id).attr('disabled','');
         $('#p-price-'+id).attr('disabled','');
         $('#s-price-'+id).attr('disabled','');
+        $('#status-'+id).attr('disabled','');
         $('#idCategory-'+id).attr('disabled','');
 
         $.ajax({
             type: "GET",
-            url: '/admin/product/edit/'+id,
+            url: 'admin/product/edit/'+id,
             success: function (response) {
                 $('#edit-'+id).empty;
                 $('#edit-'+id).html(response);
@@ -124,18 +146,20 @@
         quanty = $('#quanty-'+id).val();
         pprice = $('#p-price-'+id).val();
         sprice = $('#s-price-'+id).val();
+        status = $('#status-'+id).val();
         idCategory = $("#idCategory-"+id).val();
-        console.log(idCategory);
+        console.log(status);
 
         $.ajax({
             type: "POST",
-            url: '/admin/product/edit/'+id,
+            url: 'admin/product/edit/'+id,
             data: {
                 name: name,
                 image: image,
                 quanty: quanty,
                 pprice: pprice,
                 sprice: sprice,
+                status: status,
                 idCategory: idCategory,
                 _token: '{{csrf_token()}}',
             },
@@ -151,7 +175,7 @@
     }
 
     $('#addItem').click(function () {
-        $('table tbody').append('<tr id="add"> <td><input class="form-control form-control-plaintext" name="name" id="name" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="image" id="image" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="quanty" id="quanty" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="p-price" id="p-price" type="text" placeholder="Hãy nhập thông tin"></td><td><input class="form-control form-control-plaintext" name="s-price" id="s-price" type="text" placeholder="Hãy nhập thông tin"></td> <td><select name="idCategory" id="idCategory" class="form-control form-control-plaintext"> @foreach ($category as $cat) <option value="{{ $cat->id }}">{{ $cat->name }}</option> @endforeach </select></td> <td><a href="javacript:" onclick="btnSave()" ><span class="ion ion-md-save mr-4"></span></a><a href="javacript:" onclick="btnCancel()"><span class="ion ion-md-close"></span></a></td> </tr>');
+        $('table tbody').append('<tr id="add"> <td><input class="form-control form-control-plaintext" name="name" id="name" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="image" id="image" type="text" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="quanty" id="quanty" type="number" placeholder="Hãy nhập thông tin"></td> <td><input class="form-control form-control-plaintext" name="p-price" id="p-price" type="number" placeholder="Hãy nhập thông tin"></td><td><input class="form-control form-control-plaintext" name="s-price" id="s-price" type="number" placeholder="Hãy nhập thông tin"></td> <td> <select name="status" id="status" class="form-control form-control-plaintext"> <option value="1" selected >Hot</option> <option value="2">New</option> <option value="0">Normal</option> </select> </td> <td><select name="idCategory" id="idCategory" class="form-control form-control-plaintext"> @foreach ($category as $cat) <option value="{{ $cat->id }}">{{ $cat->name }}</option> @endforeach </select></td> <td><a href="javacript:" onclick="btnSave()" ><span class="ion ion-md-save mr-4"></span></a><a href="javacript:" onclick="btnCancel()"><span class="ion ion-md-close"></span></a></td> </tr>');
         $('#addItem').attr('hidden',"");
     })
 
@@ -162,17 +186,19 @@
         quanty= $('#quanty').val();
         pprice = $('#p-price').val();
         sprice = $('#s-price').val();
+        status = $('#status').val();
         idCategory= $('#idCategory').val();
 
         $.ajax({
             type: "POST",
-            url: '/admin/product/add',
+            url: 'admin/product/add',
             data: {
                 name: name,
                 image: image,
                 quanty: quanty,
                 pprice: pprice,
                 sprice: sprice,
+                status: status,
                 idCategory: idCategory,
                 _token: '{{csrf_token()}}',
             },
@@ -181,6 +207,7 @@
                 $('#add').html(response);
                 alert('ok');
                 $('#addItem').removeAttr('hidden');
+                location.reload();
             },
             error: function (){
                 alert('fail');

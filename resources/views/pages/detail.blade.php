@@ -17,7 +17,9 @@ Chi tiết sản phẩm
                 <div class="section-tittle mb-30">
                     <h3>Giá bán: {{ number_format($product->price) }}</h3>
                     <div class="d-flex justify-content-end">
-                        <button onclick="addCart({{$product->id}})" class=" btn btn-lg">Mua ngay</button>
+                        @if(auth()->check())
+                            <button onclick="addCart({{$product->id}})" class=" btn btn-lg">Mua ngay</button>
+                        @endif
                     </div>
                 </div>
 
